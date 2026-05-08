@@ -170,10 +170,57 @@ main {
   border: 1px solid var(--border);
   margin: 0.5rem 0 0.7rem;
   display: block;
+  cursor: zoom-in;
 }
 
 .project-grid article .btn {
   margin-top: 0.7rem;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 8, 14, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 1000;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: min(95vw, 1200px);
+  max-height: 92vh;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -0.8rem;
+  right: -0.8rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: #0c1726;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .timeline-item + .timeline-item {

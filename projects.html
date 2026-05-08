@@ -34,6 +34,7 @@
       <div class="project-grid">
         <article>
           <h4>Personal Portfolio Site</h4>
+          <img class="project-image" src="Resume.png" alt="Personal portfolio resume preview">
           <p>Responsive multi-section portfolio built with HTML and CSS, Currently the site you are on.</p>
         </article>
         <article>
@@ -45,6 +46,16 @@
           <h4>Movieposter</h4>
           <img class="project-image" src="Movieposter_113_JR.png" alt="Movie poster design preview">
           <p>A custom movie poster concept focused on visual storytelling, composition, and polished graphic design.</p>
+        </article>
+        <article>
+          <h4>Freedom Energy</h4>
+          <img class="project-image" src="freedom%20energy.png" alt="Freedom Energy website mockup preview">
+          <p>A website built to be a mock up for a energy drink comapny</p>
+        </article>
+        <article>
+          <h4>Catland</h4>
+          <img class="project-image" src="209_JR_catland.png" alt="Catland surrealism piece preview">
+          <p>A surrealism piece that was made and the thme i had decided on was cats</p>
         </article>
       </div>
     </section>
@@ -60,6 +71,18 @@
           <h4>UI Mockups for Game Menus</h4>
           <p>Menu and HUD concepts designed for clarity and fast navigation, inspired by modern action games. May be availbe to veiw in the future.</p>
         </article>
+        <article>
+          <h4>Door</h4>
+          <img class="project-image" src="door.png" alt="Door game asset preview">
+        </article>
+        <article>
+          <h4>Core</h4>
+          <img class="project-image" src="core.png" alt="Core game asset preview">
+        </article>
+        <article>
+          <h4>Props</h4>
+          <img class="project-image" src="props.png" alt="Props game asset preview">
+        </article>
       </div>
     </section>
 
@@ -69,6 +92,52 @@
       <a class="btn" href="index.html">Go to Home Page</a>
     </section>
   </main>
+
+  <div id="image-lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+      <img id="lightbox-image" class="lightbox-image" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const projectImages = document.querySelectorAll(".project-image");
+
+    const openLightbox = (image) => {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    };
+
+    projectImages.forEach((image) => {
+      image.addEventListener("click", () => openLightbox(image));
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
