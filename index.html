@@ -104,12 +104,12 @@
       </div>
       <div class="timeline-item">
         <h4>MBIT Student Ambassador</h4>
+        <img class="project-image" src="WEB_Ambassador_Jose%20R%202425.png" alt="MBIT Student Ambassador certificate or badge">
         <p class="meta">2024 - 2025</p>
-        </div>
-        <div class="timeline-item">
-          <h5>MBIT Student Influencer</h5>
-          <p class="meta">2025 - 2026</p>
-        </div>
+      </div>
+      <div class="timeline-item">
+        <h5>MBIT Student Influencer</h5>
+        <p class="meta">2025 - 2026</p>
       </div>
     </section>
 
@@ -117,15 +117,15 @@
       <h3>Education</h3>
       <div class="timeline-item">
         <h4>Council Rock South High School, Holland, PA 18966</h4>
-        <p class="meta">September 2022 - Present</p>
+        <p class="meta">September 2022 - June 18,2026</p>
         <p>Academic/accelerated coursework</p>
-        <p class="meta">High School Diploma (Pending June 2026)</p>
+        <p class="meta">High School Diploma </p>
       </div>
       <div class="timeline-item">
         <h4>Middle Bucks Institute of Technology, Jamison, PA</h4>
-        <p class="meta">September 2023 - Present</p>
+        <p class="meta">September 2023 - June 8,2026</p>
         <p>Web Design and Interactive Media Program</p>
-        <p class="meta">Program Certificate (Pending June 2026)</p>
+        <p class="meta">Program Certificate</p>
       </div>
     </section>
 
@@ -133,14 +133,17 @@
       <h3>Certifications</h3>
       <div class="timeline-item">
         <h4>Adobe Certified Professional: Adobe Photoshop</h4>
+        <img class="project-image" src="Jose%20R_PS.png" alt="Adobe Photoshop certification">
         <p class="meta">2024</p>
       </div>
       <div class="timeline-item">
         <h4>CareerSafe: Cybersecurity Essentials for Work Training</h4>
+        <img class="project-image" src="Jose%20R%20Cybersecurity.png" alt="CareerSafe Cybersecurity Essentials certification">
         <p class="meta">2023</p>
       </div>
       <div class="timeline-item">
         <h4>NOCTI Job Ready Certification for Web Design</h4>
+        <img class="project-image" src="308_JoseR_KNOW.png" alt="NOCTI Job Ready Certification for Web Design">
         <p class="meta">3/13/26</p>
       </div>
     </section>
@@ -158,5 +161,51 @@
       <p>Email: jromanjr07@gmail.com</p>
     </section>
   </main>
+
+  <div id="image-lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+      <img id="lightbox-image" class="lightbox-image" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const projectImages = document.querySelectorAll(".project-image");
+
+    const openLightbox = (image) => {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    };
+
+    projectImages.forEach((image) => {
+      image.addEventListener("click", () => openLightbox(image));
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
